@@ -34,5 +34,24 @@ class TestUser(unittest.TestCase):
         '''
         User.users_list = []
 
+class TestCredentials(unittest.TestCase):
+    '''
+    a test class that tests the behaviours of the credentials class
+    '''
+    def test_confirm_user(self):
+        '''
+        a test to check whether the user that is trying to log in is a registered user
+        '''
+        self.new_user = User("Daniel","Mutai","abcd12")
+        self.new_user.save_user()
+        mpya=User("ddd","ccc","ab12")
+        mpya.save_user()
+
+        for user in User.users_list:
+            if user.first_name == mpya.first_name and user.password == mpya.password:
+                current_user = user.first_name
+                return current_user
+                self.assertEqual(current_user,Credential.check_user(mpya.firts_name,mpya.password))
+
 if __name__ == '__main__':
     unittest.main()
