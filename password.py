@@ -20,7 +20,17 @@ class User:
 
 class Credential:
     '''
-    a classs to create the create an account , save the passwords and sites then generate passwords
+    a class to create the create an account , save the passwords and sites then generate passwords
     '''
     creds_list =[]
     user_creds_list=[]
+    @classmethod
+    def check_user(cls,first_name,password):
+        '''
+        method that checks if the name and password entered are in the system
+        '''
+        current_user = ''
+        for user in User.users_list:
+            if user.first_name == first_name and user.password == password:
+                current_user = user.first_name
+                return current_user
