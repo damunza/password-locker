@@ -73,7 +73,15 @@ class TestCredentials(unittest.TestCase):
         test to check if the new credentials are being saved into the creds_list
         '''
         self.new_cred.save_credentials()
-        self.assertEqual(len(Credential.creds_list),1)    
+        self.assertEqual(len(Credential.creds_list),1)
+
+    def test_display_credentials(self):
+        '''
+        test to check whether display_creds method displays the credentials entered
+        '''
+        self.new_cred.save_credentials()
+        instagram = Credential('dan','instagram','damunza','1234')
+        self.assertEqual(len(Credential.display_creds(instagram.site_name),1))      
 
 if __name__ == '__main__':
     unittest.main()
