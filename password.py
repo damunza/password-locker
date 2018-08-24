@@ -23,7 +23,7 @@ class Credential:
     a class to create the create an account , save the passwords and sites then generate passwords
     '''
     creds_list =[]
-    user_creds_list=[]
+    # user_creds_list=[]
     @classmethod
     def check_user(cls,first_name,password):
         '''
@@ -50,4 +50,12 @@ class Credential:
         method that saves credential(s) into the creds_list
         '''
 
-        Credential.creds_list.append(self)               
+        Credential.creds_list.append(self)
+
+    @classmethod
+    def display_creds(cls):
+        '''
+        method that returns the contents of the creds_list
+        '''
+        return  cls.creds_list
+                       
