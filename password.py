@@ -1,3 +1,6 @@
+import random
+import string
+
 class User:
     '''
     a class that defines the name(s) and password  of the user
@@ -51,6 +54,14 @@ class Credential:
         '''
 
         Credential.creds_list.append(self)
+
+    def generate_password(size):
+        '''
+        function that generates a random password of length size
+        '''
+        a=string.printable
+        pas_gen = ''.join(random.sample(a ,int(size)))
+        return pas_gen
 
     @classmethod
     def display_creds(cls):
