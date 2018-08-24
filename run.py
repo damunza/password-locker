@@ -5,7 +5,7 @@ def create_profile(first_name,last_name,password):
     '''
     function to create a new user
     '''
-    new_user = User(fname,lname,password)
+    new_user = User(first_name,last_name,password)
     return new_user
 
 def save_user(user):
@@ -58,10 +58,10 @@ def main():
             print ('Fill in the following:')
             first_name = input('Enter your first name: ').strip()
             last_name = input('Enter your last name: ').strip()
-            password = str(input('Enter password: '))
-            save_user(create_user(first_name,last_name,password))
+            password = input('Enter password: ')
+            save_user(create_profile(first_name,last_name,password))
             print (' ')
-            print (f'new account created for:{fname} {lname} and password is {password} ')
+            print (f'new account created for:{first_name} {last_name} and password is {password} ')
 
         elif short_code == 'li':
             print ('-'*50)
@@ -72,7 +72,48 @@ def main():
             user_exists = verify_profile(user_name,password)
             if user_exists == user_name:
                 print (' ')
-                print ('waiting for more code')
+                # print ('waiting for more code')
+                print (f'Welcome {user_name}.Now pick an option to continue')
+                print (' ')
+                while True:
+                    print('-'*50)
+                    print ('Nav-codes:\n cs-create site info \n ds-display site info \n ex-exit')
+                    nav_code = input('Enter Nav-code: ').strip().lower()
+                    print('-'*50)
+                    if nav_code == 'ex':
+                        print(' ')
+                        print(f'Goodbye{user_name}')
+                        break
+                    elif nav_code == 'cs':
+                        print(' ')
+                        print('Enter site details')
+                        site_name = input('Enter the name of the site: ').strip()
+                        account_name = input('Enter the account name: ').strip()
+                        while True:
+                            print(' ')
+                            print('-'*50)
+                            print('Pick an option for how you want to enter password:\n ep-enter current password \n gp-let app generate password for you \n ex-exit')
+                            option = input('Enter an option: ').lower().strip()
+                            print('-'*50)
+                            if option == 'ep':
+                                print(' ')
+                                password = input('Enter your password: ')
+                                break
+                            elif option == 'gp':
+                                password =
+                                break
+                            elif option == 'ex':
+                                break
+                            else:
+                                print('No such option! Try again')
+                        save_cred(create_cred(user_name,site_name,account_name,password))
+                        print(' ')
+                        print (f'site information created for: {site_name} -Account name:{account_name} -Password:{password}')
+                        print(' ')
+                    elif nav_code == 'ds':
+                        print(' ')
+                                                
+
             else:
                 print(' ')
                 print('Wrong Details! Try again or create profile')
