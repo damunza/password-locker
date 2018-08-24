@@ -40,7 +40,11 @@ def display_creds():
     '''
     return Credential.display_creds()
 
-
+def generate_password(size):
+    '''
+    function to generate a password of length that is later to be specified
+    '''
+    return Credential.generate_password(size)
 
 def main():
     print (' ')
@@ -99,9 +103,10 @@ def main():
                                 print(' ')
                                 password = input('Enter your password: ')
                                 break
-                            # elif option == 'gp':
-                            #     password =
-                            #     break
+                            elif option == 'gp':
+                                size = int(input('Howlong should your password be: '))
+                                password =generate_password(size)
+                                break
                             elif option == 'ex':
                                 break
                             else:
