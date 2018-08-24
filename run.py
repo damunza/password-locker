@@ -99,9 +99,9 @@ def main():
                                 print(' ')
                                 password = input('Enter your password: ')
                                 break
-                            elif option == 'gp':
-                                password =
-                                break
+                            # elif option == 'gp':
+                            #     password =
+                            #     break
                             elif option == 'ex':
                                 break
                             else:
@@ -112,7 +112,17 @@ def main():
                         print(' ')
                     elif nav_code == 'ds':
                         print(' ')
-                                                
+                        if display_creds():
+                            print('here is a list of all your sites and their details')
+                            print(' ')
+                            for cred in display_creds():
+                                print(f'Site name:{credential.site_name}.....Account name:{credential.account_name}.....Password:{password}')
+                                print(' ')
+                        else:
+                            print(' ')
+                            print('You don\'t seem to have any site and its details saved')
+                            print(' ')
+
 
             else:
                 print(' ')
