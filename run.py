@@ -104,7 +104,7 @@ def main():
                                 password = input('Enter your password: ')
                                 break
                             elif option == 'gp':
-                                size = int(input('Howlong should your password be: '))
+                                size = int(input('How long should your password be: '))
                                 password =generate_password(size)
                                 break
                             elif option == 'ex':

@@ -1,4 +1,5 @@
 import unittest # importing the unittest module
+import pyperclip
 from password import User ,Credential #first imported user class then import credential class
 
 class TestUser(unittest.TestCase):
@@ -99,6 +100,15 @@ class TestCredentials(unittest.TestCase):
         instagram.save_credentials()
         creds_exist = Credential.find_site('Instagram')
         self.assertEqual(creds_exist,instagram)
+
+    # after addition of pyperclip
+    def test_copy_password(self):
+        '''
+        test to confirm that the password from the site given is being copied
+        '''
+        self.new_cred.save_credentials()
+        Credential.copy_password('Instagram')
+        self.assertEqual(self.new_cred.password,pyperclip.paste())    
 
 if __name__ == '__main__':
     unittest.main()
