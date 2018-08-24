@@ -75,13 +75,19 @@ class TestCredentials(unittest.TestCase):
         self.new_cred.save_credentials()
         self.assertEqual(len(Credential.creds_list),1)
 
+    def tearDown(self):
+        '''
+        function to clear creds_list before every test
+        '''
+        Credential.creds_list = []
+
     def test_display_credentials(self):
         '''
         test to check whether display_creds method displays the credentials entered
         '''
         self.new_cred.save_credentials()
         instagram = Credential('dan','instagram','damunza','1234')
-        self.assertEqual(len(Credential.display_creds(instagram.site_name),1))      
+        self.assertEqual(Credential.display_creds(),Credential.creds_list)
 
 if __name__ == '__main__':
     unittest.main()
