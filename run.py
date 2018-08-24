@@ -116,7 +116,7 @@ def main():
                             print('here is a list of all your sites and their details')
                             print(' ')
                             for cred in display_creds():
-                                print(f'Site name:{credential.site_name}.....Account name:{credential.account_name}.....Password:{password}')
+                                print(f'Site name:{cred.site_name}.....Account name:{cred.account_name}.....Password:{password}')
                                 print(' ')
                         else:
                             print(' ')
