@@ -34,3 +34,13 @@ class Credential:
             if user.first_name == first_name and user.password == password:
                 current_user = user.first_name
                 return current_user
+
+    def __init__(self,user_name,site_name,account_name,password):
+        '''
+        method that defines the properties of each credential object
+        '''
+
+        self.user_name = user_name
+        self.site_name = site_name
+        self.account_name = account_name
+        self.password = password            
