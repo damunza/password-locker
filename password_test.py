@@ -107,8 +107,10 @@ class TestCredentials(unittest.TestCase):
         test to confirm that the password from the site given is being copied
         '''
         self.new_cred.save_credentials()
+        instagram = Credential('dan','Instagram','damunza','1234')
+        instagram.save_credentials()
         Credential.copy_password('Instagram')
-        self.assertEqual(self.new_cred.password,pyperclip.paste())    
+        self.assertEqual(self.new_cred.password,pyperclip.paste())
 
 if __name__ == '__main__':
     unittest.main()
