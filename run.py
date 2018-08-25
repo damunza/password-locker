@@ -97,7 +97,8 @@ def main():
                     elif nav_code == 'cpy':
                         print(' ')
                         site = input('Enter the site name whose password you want to copy: ')
-                        print(' ')    
+                        copy_password(site)
+                        print(' ')
                     elif nav_code == 'cs':
                         print(' ')
                         print('Enter site details')
