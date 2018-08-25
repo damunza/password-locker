@@ -46,6 +46,12 @@ def generate_password(size):
     '''
     return Credential.generate_password(size)
 
+def copy_password(site_name):
+    '''
+    function that copys the password of a specified app onto a clipboard
+    '''
+    return Credential.copy_password(site_name)
+
 def main():
     print (' ')
     print ('Welcome to Password Locker')
@@ -81,13 +87,17 @@ def main():
                 print (' ')
                 while True:
                     print('-'*50)
-                    print ('Nav-codes:\n cs-create site info \n ds-display site info \n ex-exit')
+                    print ('Nav-codes:\n cs-create site info \n ds-display site info \n cpy-copy password\n ex-exit')
                     nav_code = input('Enter Nav-code: ').strip().lower()
                     print('-'*50)
                     if nav_code == 'ex':
                         print(' ')
                         print(f'Goodbye{user_name}')
                         break
+                    elif nav_code == 'cpy':
+                        print(' ')
+                        site = input('Enter the site name whose password you want to copy: ')
+                        print(' ')    
                     elif nav_code == 'cs':
                         print(' ')
                         print('Enter site details')
